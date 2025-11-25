@@ -1,0 +1,41 @@
+defaultRules:
+  create: false
+
+kubeStateMetrics:
+  enabled: false
+
+nodeExporter:
+  enabled: false
+
+alertmanager:
+  enabled: false
+
+grafana:
+  enabled: true
+  service:
+    type: ClusterIP
+  adminPassword: "admin"
+  defaultDashboardsEnabled: true
+  sidecar:
+    dashboards:
+      enabled: true
+    datasources:
+      enabled: true
+
+prometheus:
+  enabled: true
+  prometheusSpec:
+    replicas: 1
+    retention: "48h"
+    scrapeInterval: "10s"
+    enableAdminAPI: false
+    serviceMonitorSelector: {}
+    serviceMonitorNamespaceSelector: {}
+
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+    patch:
+      enabled: false
+  tls:
+    enabled: false
