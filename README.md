@@ -1,8 +1,11 @@
 # ray-serve-multiple-models
-Ray Server demo with multiple models
+Ray Server demo with multiple models on local kind cluster
 
-
-
+## 1. Install Kind and run a cluster
+```
+brew install kind
+kind create cluster
+```
 ## 1. Build & Load the Image
 ```bash
 docker build -t ray_multiple_models:1.0 -f Dockerfile.multiple .
